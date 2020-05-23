@@ -17,9 +17,9 @@
 				pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
 		</Console>
 
-		<SMTP name="Mail" subject="Test Logs" to="avinashoguris@gmail.com"
-	from="autotest8686@gmail.com" smtpHost="smtp.gmail.com" smtpPort="465"
-	bufferSize="50" smtpPassword="9652106733" ignoreExceptions="flase"
+		<SMTP name="Mail" subject="Test Logs" to="TO-EMAIL"
+	from="FROM-EMAIL" smtpHost="smtp.gmail.com" smtpPort="465"
+	bufferSize="50" smtpPassword="FROM-EMAIL-PASSWORD" ignoreExceptions="flase"
 	smtpUsername="autotest8686" smtpProtocol="smtps">
     </SMTP>
 	</Appenders>
