@@ -35,12 +35,16 @@ public class Base {
 		String browserName=prop.getProperty("browser");
 		//System.out.println(browserName);
 
-		if(browserName.equals("chrome"))
+		if(browserName.contains("chrome"))
 		{
 			ChromeOptions options=new ChromeOptions();
 			options.addArguments("--disable-notifications");
-			options.addArguments("headless");			
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\drivers\\chromedriver.exe");
+			
+			if(browserName.contains("headless")) {
+				options.addArguments("headless");
+			}
+			
 			driver=new ChromeDriver(options);
 			//execute in chrome driver
 
@@ -67,14 +71,14 @@ public class Base {
 			driver=new ChromeDriver(options);*/
 			//execute in Mobile chrome driver
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\drivers\\chromedriver.exe");
-			 Map<String, String> mobileEmulation = new HashMap<String, String>();  
-  
-            mobileEmulation.put("deviceName", "iPhone 6");  
-            Map<String, Object> chromeOptions = new HashMap<String, Object>();   
-            chromeOptions.put("mobileEmulation", mobileEmulation);    
-            DesiredCapabilities capabilities = DesiredCapabilities.chrome();  
-            capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);  
-            driver = new ChromeDriver(capabilities); 
+			Map<String, String> mobileEmulation = new HashMap<String, String>();  
+
+			mobileEmulation.put("deviceName", "iPhone 6");  
+			Map<String, Object> chromeOptions = new HashMap<String, Object>();   
+			chromeOptions.put("mobileEmulation", mobileEmulation);    
+			DesiredCapabilities capabilities = DesiredCapabilities.chrome();  
+			capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);  
+			driver = new ChromeDriver(capabilities); 
 
 		}
 
